@@ -3,7 +3,7 @@
 Me and one of my teammate [@\_\_c3rb3ru5__](https://twitter.com/__c3rb3ru5__) made `lazyFuzzer` to fuzz the all PHP functions to check if they call `execve` system call internally.
 
 I also made a tool on the top of the findings this fuzzer did, here,  
-**Announcing** [dfunc-bypasser](https://github.com/teambi0s/dfunc-bypasser) for letting you know how strong your disable_function is and how you can bypass that. 
+**Announcing** [dfunc-bypasser](https://github.com/teambi0s/dfunc-bypasser) for letting you know how strong your disable_function is and how you can bypass that.
 
 **Note:** The functions I got are not in the default php installation, instead the php modules which get installed sometimes during normal installation.  
 
@@ -25,16 +25,16 @@ First, I installed all the php-modules on the server and thought of fuzzing the 
 ## Getting the no. and type of arguments of the php functions:
 First thing was to find out the, what number of argument the function needs? so I used the error messages of the functions which says, `at least`, `at most`, `exactly` the number of argument should be used.  
 
-![a](/images/photos/blog3.0.png)  
+![a](./images/blog3.0.png)  
 
 
 **Note:** For this I could have also used [ReflectionFunction](https://www.php.net/manual/en/class.reflectionfunction.php) class to find out the max and the least numbers of arguments needed.  
 
-![a](/images/photos/blog3.2.png)
+![a](./images/blog3.2.png)
 
 Now, we needed to check, what type of input the function takes? that also we solved using error ;). But the problem here is, you can't get the types of arguments all in the once. You have to set the arguments such that the php can check the next argument.  
 
-![a](/images/photos/blog3.1.png)  
+![a](./images/blog3.1.png)  
 
 **Note:** For this you __can't__ use `ReflectionFunction` class because, this class mainly works for user defined functions not for php pre-defined(internal) functions.
 
@@ -49,7 +49,7 @@ Now the task to find the string which satisfy almost all of these argument types
 ```
 This String can be used as `string`,`int`,`file` and `bool`
 
-![a](/images/photos/blog3.3.png)
+![a](./images/blog3.3.png)
 
 For the `flag` argument, we will be using integers from the range of (-10,10).  
 For the `Object` type argument, most of the time functions don't take the input as Object.  
@@ -75,5 +75,3 @@ You can get the file which has been used for this testing, here, [lazyFuzzer.py]
 # dfunc-bypasser tool:
 This tool is to test how much strong your disable_functions is. The tool takes your input and tells you that, which function could possibly bypass the given disable_functions.  
 You can install this tool from [here](https://github.com/teambi0s/dfunc-bypasser).  
-
-## Some Screenshots of the same:
