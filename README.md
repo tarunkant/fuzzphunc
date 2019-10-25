@@ -72,7 +72,7 @@ I got 4 new functions which can bypass PHP disable_functions using `LD_PRELOAD`.
 3. `libvirt_connect` : If your system has `php-libvirt-php` module installed then this function also can be used to bypass disable_functions.
 4. `gnupg_init` : If your system has `php-gnupg` module installed then this function also can be used to bypass disable_functions.
 
-You can get the file which has been used for this testing, here, [lazyFuzzer.py](<LinkToTheTool>).
+You can get the file which has been used for this testing, here, [lazyFuzzer.py](https://github.com/tarunkant/fuzzphunc/blob/master/lazyFuzzer.py).
 
 # dfunc-bypasser tool:
 This tool is to test how much strong your disable_functions is. The tool takes your input and tells you that, which function could possibly bypass the given disable_functions.  
