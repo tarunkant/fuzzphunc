@@ -67,7 +67,6 @@ for i in get_defined_function:
 
     for j in range(minargs,maxargs+1):
 
-
         for k in final_seed:
 
             args = [k]*j
